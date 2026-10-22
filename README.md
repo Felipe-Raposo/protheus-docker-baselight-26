@@ -8,12 +8,15 @@ Este projeto monta uma imagem base Docker para rodar o AppServer do Protheus 12 
 
 Em produção, o host que executa o container deve usar um kernel suportado (Red Hat Compatible Kernel — RHCK; o Unbreakable Enterprise Kernel — UEK — não é homologado). Dentro do container vale o userspace do Oracle Linux 9.
 
-Esse projeto gera imagem base para a construção de imagens de AppServer para License e para Protheus 12.1.2610.
+A imagem gerada é `feliperaposo/protheus-docker-baselight:26`. O [protheus-docker-base:26](https://github.com/Felipe-Raposo/protheus-docker-base-26) parte dela, e o Protheus 12.1.2610 parte dessa base.
+
+Se estiver buscando um ambiente completo com Protheus + License + dbAccess + Postgres, acesse esse [projeto](https://github.com/Felipe-Raposo/protheus-docker-compose).
 
 ### Características
 
-- **Base:** Oracle Linux 9 Slim
-- **Protheus:** AppServer 26.x.y.z
+- **Base:** Oracle Linux 9 Slim (`oraclelinux:9-slim`)
+- **Protheus:** AppServer 26.3.0.0, extraído de `appserver.tar.xz` para `/protheus12/bin/appserver` durante o build
+- **Pacotes:** `tar`, `xz` e `dmidecode`
 
 ## Pré-requisitos
 
